@@ -1,1 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+</head>
+<body>
+    <h1 style="text-align: center;color: white; background-color: skyblue ;">QR Code Generator</h1>
+    <input type="text" id="inputData" placeholder="Enter data for QR code">
+    <br>
+    <button onclick="generateQRCode()">Generate Code</button></body></br>
+    <br>
+    <div id="qrcode"></div></html></br>
 
+    <script>
+        function generateQRCode() {
+            const inputData = document.getElementById('inputData').value;
+            const qrcodeDiv = document.getElementById('qrcode');
+            
+            qrcodeDiv.innerHTML = ''; 
+            
+            const img = document.createElement('img');
+            img.src = `/generate_qr/${encodeURIComponent(inputData)}`;
+            
+            qrcodeDiv.appendChild(img);
+        }
+    </script>
+</body>
+</html>
